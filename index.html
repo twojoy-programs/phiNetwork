@@ -10,15 +10,19 @@
   <h1 class="heading">phiNetwork relay control panel</h1>
   <h1 class="heading">Select relay, enter password, and press button
     to turn on or off.</h1>
-  <form class="center" action="query.pl" method="post">
+  <form class="center" id="form" action="query.pl" method="post">
     <input type="radio" name="sw" value="1" checked> Relay 1<br>
     <input type="radio" name="sw" value="2">         Relay 2<br>
     <input type="radio" name="sw" value="3">         Relay 3<br>
     Password: <input type="password"  name="pw"><br>
     <input type="hidden" name="test" value="larrywall">
+    <input id="state" type="hidden" name="state" value="0">
     <input type="button" onclick="alert('Hello World!')" value="Turn On!">
     <input type="button" onclick="alert('Hello World!')" value="Turn Off!">
   </form>
+  <script>
+  var state = document.getElementById("form").elements.namedItem("state");
+  </script>
 
 </body>
 </html>
