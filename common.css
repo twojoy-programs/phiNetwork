@@ -4,5 +4,9 @@ body {
   font-family: "Courier New", Courier, monospace
 }
 .center {
-    text-align: center;
+  text-align: center;
+}
+.heading {
+  color: red;
+  text-align: center;
 }
