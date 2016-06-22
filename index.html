@@ -21,7 +21,8 @@
     <input type="button" onclick="off()" value="Turn Off!">
   </form>
   <script>
-  var state = document.getElementById("form").elements.namedItem("state");
+  var form = document.getElementById("form")
+  var state = form.elements.namedItem("state");
   function on()
   {
 
