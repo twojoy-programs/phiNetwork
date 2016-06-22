@@ -17,8 +17,8 @@
     Password: <input type="password"  name="pw"><br>
     <input type="hidden" name="test" value="larrywall">
     <input id="state" type="hidden" name="state" value="0">
-    <input type="button" onclick="alert('Hello World!')" value="Turn On!">
-    <input type="button" onclick="alert('Hello World!')" value="Turn Off!">
+    <input type="button" onclick="off()" value="Turn On!">
+    <input type="button" onclick="off()" value="Turn Off!">
   </form>
   <script>
   var state = document.getElementById("form").elements.namedItem("state");
