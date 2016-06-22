@@ -25,11 +25,13 @@
   var state = form.elements.namedItem("state");
   function on()
   {
-
+    state.value("1")
+    form.submit()
   }
   function off()
   {
-
+    state.value("0")
+    form.submit()
   }
   </script>
   <noscript>Javascript is required for this page.</noscript>
