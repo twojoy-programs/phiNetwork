@@ -17,21 +17,21 @@
     Password: <input type="password"  name="pw"><br>
     <input type="hidden" name="test" value="larrywall">
     <input id="state" type="hidden" name="state" value="0">
-    <input type="button" onclick="off()" value="Turn On!">
-    <input type="button" onclick="off()" value="Turn Off!">
+    <input type="button" onclick="off();" value="Turn On!">
+    <input type="button" onclick="off();" value="Turn Off!">
   </form>
   <script>
   var form = document.getElementById("form")
   var state = form.elements.namedItem("state");
   function on()
   {
-    state.value("1")
-    form.submit()
+    state.value("1");
+    form.submit();
   }
   function off()
   {
-    state.value("0")
-    form.submit()
+    state.value("0");
+    form.submit();
   }
   </script>
   <noscript>Javascript is required for this page.</noscript>
