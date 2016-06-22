@@ -7,6 +7,9 @@ body {
   text-align: center;
 }
 .heading {
-  color: red;
+  color: beige;
   text-align: center;
+}
+strong {
+  color: red;
 }
