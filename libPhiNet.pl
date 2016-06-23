@@ -9,14 +9,14 @@ do $daemonpidfile;
 sub on()
 {
     my $arg = $_; # IDK why I did this, but I want to.
-    if (-e $file)
+    if (-e $ipcfile)
     {
-      while(-e $file)
+      while(-e $ipcfile)
       {
         sleep(0.5);
       }
     }
-    open(PFILE, ">", $file);
+    open(PFILE, ">", $ipcfile);
     print(PFILE, '$pid = ' . "$$\n");
     print(PFILE, '$relay = ' . "$arg\n");
     print(PFILE, '$state = ' . "1\n");
@@ -26,14 +26,14 @@ sub on()
 sub off()
 {
     my $arg = $_; # IDK why I did this, but I want to.
-    if (-e $file)
+    if (-e $ipcfile)
     {
-      while(-e $file)
+      while(-e $ipcfile)
       {
         sleep(0.5);
       }
     }
-    open(PFILE, ">", $file);
+    open(PFILE, ">", $ipcfile);
     print(PFILE, '$pid = ' . "$$\n");
     print(PFILE, '$relay = ' . "$arg\n");
     print(PFILE, '$state = ' . "0\n");
