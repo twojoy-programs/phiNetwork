@@ -18,7 +18,7 @@ sub on()
     open(PFILE, ">", $file);
     print(PFILE, '$pid = ' . "$$\n");
     print(PFILE, '$relay = ' . "$arg\n")
-    print(PFILE, '$state = ' . "$1\n")
+    print(PFILE, '$state = ' . "1\n")
 }
 sub off()
 {
