@@ -29,4 +29,4 @@ else     # Development config
 }
 my $password        = `cat password.conf`; # This arrangement makes it easy to
                                            # test (and keep the PW secret.)
-# This is a SHA256 (hex) hash of the actual PW.
+# This is the password, hashed 2 times with SHA256 (with hex output)
