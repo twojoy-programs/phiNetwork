@@ -1,6 +1,7 @@
 #!/usr/bin/perl -d
 
-my $config = "/var/www/phiNet.conf.pl";
+my $config = "./phiNet.conf.pl";
+#my $config = "/var/www/phiNet.conf.pl"; #This is a better line if you use this in prod.
 # Library for talking w/ phinet daemon
 #
 use strict;
