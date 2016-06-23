@@ -1,7 +1,7 @@
 # Example config file.
 # FYI: This is executable perl code. All of its rules apply.
-use strict;
 
+use strict;
 my $prod            = "0";
 # Whether in production or not.
 if($prod)
@@ -11,6 +11,7 @@ if($prod)
   # Where the file for the daemon's PID will be stored.
   my $ipcfile       = "/var/www/phiNet/ipc.conf.pl";
   # Where the IPC file will be
+  my $libraries     = "/var/www/phiNet/libPhiNet.pl"
 }
 else
 {
