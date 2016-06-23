@@ -5,6 +5,7 @@ my $config = "";
 #
 use strict;
 do $config;
+do $daemonpidfile;
 sub on()
 {
     my $arg = $_; # IDK why I did this, but I want to.
@@ -17,8 +18,10 @@ sub on()
     }
     open(PFILE, ">", $file);
     print(PFILE, '$pid = ' . "$$\n");
-    print(PFILE, '$relay = ' . "$arg\n")
-    print(PFILE, '$state = ' . "1\n")
+    print(PFILE, '$relay = ' . "$arg\n");
+    print(PFILE, '$state = ' . "1\n");
+    close(PFILE);
+    kill('USR1', $daemonpid);
 }
 sub off()
 {
@@ -32,7 +35,9 @@ sub off()
     }
     open(PFILE, ">", $file);
     print(PFILE, '$pid = ' . "$$\n");
-    print(PFILE, '$relay = ' . "$arg\n")
-    print(PFILE, '$state = ' . "0\n")
+    print(PFILE, '$relay = ' . "$arg\n");
+    print(PFILE, '$state = ' . "0\n");
+    close(PFILE);
+    kill('USR1', $daemonpid);
 }
 1;
