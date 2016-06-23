@@ -21,3 +21,9 @@ if (not -e $daemonpidfile)
   print($error_daemondead);
   exit(0)
 }
+my $pwhash = sha256_hex($input{"pw"});
+if ($pwhash != $password)
+{
+  print($error_wrongpw);
+  exit(0)
+}
