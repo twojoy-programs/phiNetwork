@@ -24,4 +24,4 @@ else     # Development config
   # Where the library is.
 }
 my $password        = "";
-# This is a SHA256 hash of the actual PW.
+# This is a SHA256 (hex) hash of the actual PW.
