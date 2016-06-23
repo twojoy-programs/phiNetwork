@@ -4,3 +4,4 @@ Libraries Needed:
 -----------------
 * `Digest::SHA`
 * `CGI`
+* [JsSHA](https://github.com/Caligatio/jsSHA)
