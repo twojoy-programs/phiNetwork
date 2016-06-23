@@ -1,11 +1,15 @@
 #!/usr/bin/perl -d
 
-my $config = "";
+my $config = "/var/www/phiNet.conf.pl";
 # Library for talking w/ phinet daemon
 #
 use strict;
 use Carp;
 do $config;
+if (-e $daemonpidfile)
+{
+  confess("Is the daemon alive???\n");
+}
 do $daemonpidfile;
 sub on()
 {
