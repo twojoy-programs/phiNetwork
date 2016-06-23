@@ -3,4 +3,14 @@
 #
 use strict;
 do libPhiNet.pl;
-on($_);
+my $programargs = $_;
+my $helptext    = "Usage: on.pl <relayNumber>\n"
+if($programargs)
+{
+  on($programargs);
+}
+else
+{
+  print($helptext)
+  exit(1);
+}
