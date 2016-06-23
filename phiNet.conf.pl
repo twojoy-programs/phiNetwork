@@ -23,5 +23,6 @@ else     # Development config
   my $libraries     = "./libPhiNet.pl"
   # Where the library is.
 }
-my $password        = "";
+my $password        = `cat password.conf`; # This arrangement makes it easy to
+                                           # test (and keep the PW secret.)
 # This is a SHA256 (hex) hash of the actual PW.
