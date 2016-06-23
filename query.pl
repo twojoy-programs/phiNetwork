@@ -30,9 +30,13 @@ if ($pwhash != $password)
 }
 if ($input{"state"})
 {
-  on($input{"sw"})
+  on($input{"sw"});
+  print($success);
+  exit(0);
 }
-if ($input{"state"})
+if (not $input{"state"})
 {
-  off($input{"sw"})
+  off($input{"sw"});
+  print($success);
+  exit(0);
 }
