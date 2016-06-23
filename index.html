@@ -28,7 +28,7 @@
   var state = form.elements.namedItem("state");
   var pw = form.elements.namedItem("pw");
   var pw_nohash = form.elements.namedItem("pw_nohash");
-  var shaObj = new jsSHA("SHA-512", "TEXT");
+  var shaObj = new jsSHA("SHA-256", "TEXT");
   function on()
   {
     shaObj.update(pw_nohash.value);
