@@ -19,3 +19,4 @@ nytprof.out
 *.bs
 /_eumm/
 password.conf
+libs/sha256.js
