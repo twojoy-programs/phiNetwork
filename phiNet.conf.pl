@@ -4,7 +4,7 @@
 use strict;
 my $prod            = "0";
 # Whether in production or not.
-if($prod) 
+if($prod) # Production config
 {
   # On my system/ the web root is /var/www/html.
   my $daemonpidfile = "/var/www/phiNet/pid.conf.pl";
@@ -14,7 +14,7 @@ if($prod)
   my $libraries     = "/var/www/phiNet/libPhiNet.pl"
   # Where the library is.
 }
-else
+else     # Development config
 {
   my $daemonpidfile = "./pid.conf.pl";
   # Where the file for the daemon's PID will be stored.
