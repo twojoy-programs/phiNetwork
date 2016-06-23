@@ -12,6 +12,7 @@ if($prod)
   my $ipcfile       = "/var/www/phiNet/ipc.conf.pl";
   # Where the IPC file will be
   my $libraries     = "/var/www/phiNet/libPhiNet.pl"
+  # Where the library is.
 }
 else
 {
@@ -19,6 +20,8 @@ else
   # Where the file for the daemon's PID will be stored.
   my $ipcfile       = "./ipc.conf.pl";
   # Where the IPC file will be
+  my $libraries     = "./libPhiNet.pl"
+  # Where the library is.
 }
 my $password        = "";
-# This is a SHA1 hash of the actual PW.
+# This is a SHA256 hash of the actual PW.
