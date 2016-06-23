@@ -4,6 +4,7 @@ my $config = "";
 # Library for talking w/ phinet daemon
 #
 use strict;
+use Carp;
 do $config;
 do $daemonpidfile;
 sub on()
@@ -15,6 +16,10 @@ sub on()
       {
         sleep(0.5);
       }
+    }
+    if (not $arg)
+    {
+      confess("Arguments Needed!!!\n");
     }
     open(PFILE, ">", $ipcfile);
     print(PFILE, '$pid = ' . "$$\n");
@@ -32,6 +37,10 @@ sub off()
       {
         sleep(0.5);
       }
+    }
+    if (not $arg)
+    {
+      confess("Arguments Needed!!!\n");
     }
     open(PFILE, ">", $ipcfile);
     print(PFILE, '$pid = ' . "$$\n");
