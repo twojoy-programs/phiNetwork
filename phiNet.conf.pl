@@ -13,6 +13,8 @@ if($prod) # Production config
   # Where the IPC file will be
   my $libraries     = "/var/www/phiNet/libPhiNet.pl"
   # Where the library is.
+  my $data          = "/var/www/phiNet/query.data.pl"
+  # Where the query response data is.
 }
 else     # Development config
 {
@@ -22,6 +24,8 @@ else     # Development config
   # Where the IPC file will be
   my $libraries     = "./libPhiNet.pl"
   # Where the library is.
+  my $data          = "./query.data.pl"
+  # Where the query response data is.
 }
 my $password        = `cat password.conf`; # This arrangement makes it easy to
                                            # test (and keep the PW secret.)
