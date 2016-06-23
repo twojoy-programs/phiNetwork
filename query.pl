@@ -10,8 +10,14 @@ my $config = "./phiNet.conf.pl";
 do $config;
 do $data;
 my $query = CGI->new;
-my @keywords = $query->keywords;
-if ($keywords{"test"} = "larrywall")
+my @input = $query->keywords;
+if ($input{"test"} != "larrywall")
 {
-
+  print($error_wrongform);
+  exit(0);
+}
+if (not -e $daemonpidfile)
+{
+  print($error_daemondead);
+  exit(0)
 }
