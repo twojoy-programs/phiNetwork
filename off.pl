@@ -1,16 +1,19 @@
 #!/usr/bin/perl
-# This script tells the daemon to turn things on.
+# This script tells the daemon to turn things off.
 #
+my $config = "./phiNet.conf.pl";
+#my $config = "/var/www/phiNet.conf.pl"; #This is a better line if you use this in prod.
 use strict;
-do libPhiNet.pl;
+do $config;
+do $libraries;
 my $programargs = $_;
-my $helptext    = "Usage: ff.pl <relayNumber>\n"
+my $helptext    = "Usage: off.pl <relayNumber>\n"
 if($programargs)
 {
   off($programargs);
 }
 else
 {
-  print($helptext)
+  print($helptext);
   exit(1);
 }
