@@ -4,7 +4,7 @@
 use strict;
 my $prod            = "0";
 # Whether in production or not.
-if($prod)
+if($prod) 
 {
   # On my system/ the web root is /var/www/html.
   my $daemonpidfile = "/var/www/phiNet/pid.conf.pl";
