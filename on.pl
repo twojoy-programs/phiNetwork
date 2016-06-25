@@ -10,7 +10,7 @@ my $programargs = $_;
 my $helptext    = "Usage: on.pl <relayNumber>\n"
 if($programargs)
 {
-  on($programargs);
+  on($programargs) or die("Could not switch relay");
 }
 else
 {
