@@ -32,6 +32,10 @@ sub on()
     print(PFILE, '$state = ' . "1\n");
     close(PFILE);
     kill('USR1', $daemonpid);
+    $SIG{USR1} = sub {return 1};
+    sleep(10);
+    return 0;
+
 }
 sub off()
 {
@@ -53,5 +57,8 @@ sub off()
     print(PFILE, '$state = ' . "0\n");
     close(PFILE);
     kill('USR1', $daemonpid);
+    $SIG{USR1} = sub {return 1};
+    sleep(10);
+    return 0;
 }
 1;
