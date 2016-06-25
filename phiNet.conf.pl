@@ -19,6 +19,7 @@ if($prod) # Production config
   # Where the library is.
   my $data          = "/var/www/phiNet/query.data.pl"
   # Where the query response data is.
+  my $gpioLib       = "/var/www/phiNet/gpiolib.pl"
 }
 else     # Development config
 {
@@ -30,7 +31,15 @@ else     # Development config
   # Where the library is.
   my $data          = "./query.data.pl"
   # Where the query response data is.
+  my $gpioLib       = "./gpioLib.pl"
 }
+# Relay Addresses. $relay1_0 means "Relay 1, off", and so on.
+my $relay1_0        = "";
+my $relay1_1        = "";
+my $relay2_0        = "";
+my $relay2_1        = "";
+my $relay3_0        = "";
+my $relay3_1        = "";
 my $password        = `cat password.conf`; # This arrangement makes it easy to
                                            # test (and keep the PW secret.)
 # This is the password, hashed 2 times with SHA256 (with hex output)
