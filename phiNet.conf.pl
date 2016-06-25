@@ -1,5 +1,9 @@
 # Example config file.
 # FYI: This is executable perl code. All of its rules apply.
+#
+# FYI: This is how it should be used.
+#my $config = "./phiNet.conf.pl";
+#my $config = "/var/www/phiNet.conf.pl"; # This is a better line if you use this in prod.
 
 use strict;
 my $prod            = "0";
