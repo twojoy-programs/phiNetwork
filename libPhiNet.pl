@@ -14,8 +14,7 @@ if (-e $daemonpidfile)
 do $daemonpidfile;
 sub on()
 {
-    my $arg = $_; # IDK why I did this, but I want to.
-    if (-e $ipcfile)
+    my $arg = shift;
     {
       while(-e $ipcfile)
       {
@@ -39,7 +38,7 @@ sub on()
 }
 sub off()
 {
-    my $arg = $_; # IDK why I did this, but I want to.
+    my $arg = shift;
     if (-e $ipcfile)
     {
       while(-e $ipcfile)
