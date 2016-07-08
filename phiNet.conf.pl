@@ -40,6 +40,9 @@ my $relay2_0        = "";
 my $relay2_1        = "";
 my $relay3_0        = "";
 my $relay3_1        = "";
+
+# This is the password, hashed 2 times with SHA256 (with hex output)
 my $password        = `cat password.conf`; # This arrangement makes it easy to
                                            # test (and keep the PW secret.)
-# This is the password, hashed 2 times with SHA256 (with hex output)
+
+#
