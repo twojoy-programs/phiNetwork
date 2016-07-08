@@ -26,7 +26,7 @@ sub cleanup()
 }
 sub loadconf()
 {do $config;}
-open(PIDFILE, ">", $daemonpidfile);
+open(PIDFILE, ">", $daemonpidfile) or die "Can't open process id (lock)file: $!";
 print(PIDFILE, '$daemonpid = ' . "$$\n");
 close(PIDFILE);
 do $gpioLib;
