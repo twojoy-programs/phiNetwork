@@ -19,7 +19,11 @@ if(-e $daemonpidfile)
   say("delete $daemonpidfile. If not, stop the other daemon.");
 }
 sub cleanup()
-{unlink $daemonpidfile; exit();}
+{
+  unlink $daemonpidfile;
+  gpio_unexport();
+  exit();
+}
 sub loadconf()
 {do $config;}
 open(PIDFILE, ">", $daemonpidfile);
