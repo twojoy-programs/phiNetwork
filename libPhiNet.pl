@@ -25,7 +25,7 @@ sub on()
     {
       confess("Arguments Needed!!!\n");
     }
-    open(PFILE, ">", $ipcfile);
+    open(PFILE, ">", $ipcfile) or croak("Can't open IPC file: $!\n");
     print(PFILE, '$pid = ' . "$$\n");
     print(PFILE, '$relay = ' . "$arg\n");
     print(PFILE, '$state = ' . "1\n");
@@ -50,7 +50,7 @@ sub off()
     {
       confess("Arguments Needed!!!\n");
     }
-    open(PFILE, ">", $ipcfile);
+    open(PFILE, ">", $ipcfile) or croak("Can't open IPC file: $!\n");
     print(PFILE, '$pid = ' . "$$\n");
     print(PFILE, '$relay = ' . "$arg\n");
     print(PFILE, '$state = ' . "0\n");
