@@ -6,7 +6,7 @@ my $config = "./phiNet.conf.pl";
 #
 use warnings;
 use strict;
-use feature;
+use v5.14;
 do $config;
 $SIG{INT} = \&cleanup;
 $SIG{HUP} = \&loadconf;
@@ -18,18 +18,51 @@ if(-e $daemonpidfile)
   say("the PID file behind. If you believe in the latter,");
   say("delete $daemonpidfile. If not, stop the other daemon.");
 }
+given($numberofrelays)
+{
+  when(1) {gpio_export($relay1_0); gpio_export($relay1_1); }
+  when(2) {gpio_export($relay1_0); gpio_export($relay1_1);
+           gpio_export($relay1_0); gpio_export($relay1_0); }
+  when(3) {gpio_export($relay1_0); gpio_export($relay1_1);
+           gpio_export($relay2_0); gpio_export($relay2_1);
+           gpio_export($relay3_0); gpio_export($relay3_1);}
+  when(4) {gpio_export($relay1_0); gpio_export($relay1_1);
+           gpio_export($relay1_0); gpio_export($relay1_1);
+           gpio_export($relay1_0); gpio_export($relay1_1);
+           gpio_export($relay1_0); gpio_export($relay1_1);}
+  when(5) {gpio_export($relay1_0); gpio_export($relay1_1);
+           gpio_export($relay1_0); gpio_export($relay1_1);
+           gpio_export($relay1_0); gpio_export($relay1_1);}
+  default {}
+}
 sub cleanup()
 {
   unlink $daemonpidfile;
-  gpio_unexport();
+  given($numberofrelays)
+  {
+    when(1) {gpio_unexport($relay1_0); gpio_unexport($relay1_1); }
+    when(2) {gpio_unexport($relay1_0); gpio_unexport($relay1_1);
+             gpio_unexport($relay1_0); gpio_unexport($relay1_0); }
+    when(3) {gpio_unexport($relay1_0); gpio_unexport($relay1_1);
+             gpio_unexport($relay2_0); gpio_unexport($relay2_1);
+             gpio_unexport($relay3_0); gpio_unexport($relay3_1);}
+    when(4) {gpio_unexport($relay1_0); gpio_unexport($relay1_1);
+             gpio_unexport($relay1_0); gpio_unexport($relay1_1);
+             gpio_unexport($relay1_0); gpio_unexport($relay1_1);
+             gpio_unexport($relay1_0); gpio_unexport($relay1_1);}
+    when(5) {gpio_unexport($relay1_0); gpio_unexport($relay1_1);
+             gpio_unexport($relay1_0); gpio_unexport($relay1_1);
+             gpio_unexport($relay1_0); gpio_unexport($relay1_1);}
+    default {}
+  }
+  while()
   exit();
 }
 sub loadconf()
-{do $config;}
+{do $config; do $gpioLib;}
 open(PIDFILE, ">", $daemonpidfile) or die "Can't open process id (lock)file: $!";
 print(PIDFILE, '$daemonpid = ' . "$$\n");
 close(PIDFILE);
-do $gpioLib;
 sub ipc()
 {
   do $ipcfile;
