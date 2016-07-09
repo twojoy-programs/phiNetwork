@@ -45,4 +45,5 @@ my $relay3_1        = "";
 my $password        = `cat password.conf`; # This arrangement makes it easy to
                                            # test (and keep the PW secret.)
 
-#
+# Number of relays.
+my $numofrelays     = "3";
