@@ -33,13 +33,21 @@ else     # Development config
   # Where the query response data is.
   my $gpioLib       = "./gpioLib.pl"
 }
-# Relay Addresses. $relay1_0 means "Relay 1, off", and so on.
-my $relay1_0        = "";
-my $relay1_1        = "";
-my $relay2_0        = "";
-my $relay2_1        = "";
-my $relay3_0        = "";
-my $relay3_1        = "";
+# Relay Addresses.
+# Addresses for the "On" state of the relays.
+my @relay_on  =
+{
+  1 => 0,
+  2 => 0,
+  3 => 0,
+};
+# Addresses for the "Off" state of the relays.
+my @relay_off =
+{
+  1 => 0,
+  2 => 0,
+  3 => 0,
+};
 
 # This is the password, hashed 2 times with SHA256 (with hex output)
 my $password        = `cat password.conf`; # This arrangement makes it easy to
