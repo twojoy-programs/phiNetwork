@@ -27,12 +27,14 @@ given($numberofrelays)
            gpio_export($relay2_0); gpio_export($relay2_1);
            gpio_export($relay3_0); gpio_export($relay3_1);}
   when(4) {gpio_export($relay1_0); gpio_export($relay1_1);
-           gpio_export($relay1_0); gpio_export($relay1_1);
-           gpio_export($relay1_0); gpio_export($relay1_1);
-           gpio_export($relay1_0); gpio_export($relay1_1);}
+           gpio_export($relay2_0); gpio_export($relay2_1);
+           gpio_export($relay3_0); gpio_export($relay3_1);
+           gpio_export($relay4_0); gpio_export($relay4_1);}
   when(5) {gpio_export($relay1_0); gpio_export($relay1_1);
-           gpio_export($relay1_0); gpio_export($relay1_1);
-           gpio_export($relay1_0); gpio_export($relay1_1);}
+           gpio_export($relay2_0); gpio_export($relay2_1);
+           gpio_export($relay3_0); gpio_export($relay3_1);
+           gpio_export($relay4_0); gpio_export($relay4_1);
+           gpio_export($relay5_0); gpio_export($relay5_1);}
   default {}
 }
 sub cleanup()
@@ -47,15 +49,16 @@ sub cleanup()
              gpio_unexport($relay2_0); gpio_unexport($relay2_1);
              gpio_unexport($relay3_0); gpio_unexport($relay3_1);}
     when(4) {gpio_unexport($relay1_0); gpio_unexport($relay1_1);
-             gpio_unexport($relay1_0); gpio_unexport($relay1_1);
-             gpio_unexport($relay1_0); gpio_unexport($relay1_1);
-             gpio_unexport($relay1_0); gpio_unexport($relay1_1);}
+             gpio_unexport($relay2_0); gpio_unexport($relay2_1);
+             gpio_unexport($relay3_0); gpio_unexport($relay3_1);
+             gpio_unexport($relay4_0); gpio_unexport($relay4_1);}
     when(5) {gpio_unexport($relay1_0); gpio_unexport($relay1_1);
-             gpio_unexport($relay1_0); gpio_unexport($relay1_1);
-             gpio_unexport($relay1_0); gpio_unexport($relay1_1);}
+             gpio_unexport($relay2_0); gpio_unexport($relay2_1);
+             gpio_unexport($relay3_0); gpio_unexport($relay3_1);
+             gpio_unexport($relay4_0); gpio_unexport($relay4_1);
+             gpio_unexport($relay5_0); gpio_unexport($relay5_1);}
     default {}
   }
-  while()
   exit();
 }
 sub loadconf()
