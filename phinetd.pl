@@ -20,21 +20,21 @@ if(-e $daemonpidfile)
 }
 given($numberofrelays)
 {
-  when(1) {gpio_export($relay1_0); gpio_export($relay1_1); }
-  when(2) {gpio_export($relay1_0); gpio_export($relay1_1);
-           gpio_export($relay1_0); gpio_export($relay1_0); }
-  when(3) {gpio_export($relay1_0); gpio_export($relay1_1);
-           gpio_export($relay2_0); gpio_export($relay2_1);
-           gpio_export($relay3_0); gpio_export($relay3_1);}
-  when(4) {gpio_export($relay1_0); gpio_export($relay1_1);
-           gpio_export($relay2_0); gpio_export($relay2_1);
-           gpio_export($relay3_0); gpio_export($relay3_1);
-           gpio_export($relay4_0); gpio_export($relay4_1);}
-  when(5) {gpio_export($relay1_0); gpio_export($relay1_1);
-           gpio_export($relay2_0); gpio_export($relay2_1);
-           gpio_export($relay3_0); gpio_export($relay3_1);
-           gpio_export($relay4_0); gpio_export($relay4_1);
-           gpio_export($relay5_0); gpio_export($relay5_1);}
+  when(1) {gpio_export($relay_off[1]); gpio_export($relay_on[1]); }
+  when(2) {gpio_export($relay_off[1]); gpio_export($relay_on[1]);
+           gpio_export($relay_off[1]); gpio_export($relay_on[1]); }
+  when(3) {gpio_export($relay_off[1]); gpio_export($relay_on[1]);
+           gpio_export($relay_off[2]); gpio_export($relay_on[2]);
+           gpio_export($relay_off[3]); gpio_export($relay_on[3]);}
+  when(4) {gpio_export($relay_off[1]); gpio_export($relay_on[1]);
+           gpio_export($relay_off[2]); gpio_export($relay_on[2]);
+           gpio_export($relay_off[3]); gpio_export($relay_on[3]);
+           gpio_export($relay_off[4]); gpio_export($relay_on[4]);}
+  when(5) {gpio_export($relay_off[1]); gpio_export($relay_on[1]);
+           gpio_export($relay_off[2]); gpio_export($relay_on[2]);
+           gpio_export($relay_off[3]); gpio_export($relay_on[3]);
+           gpio_export($relay_off[4]); gpio_export($relay_on[4]);
+           gpio_export($relay_off[5]); gpio_export($relay_on[5]);}
   default {}
 }
 sub cleanup()
@@ -42,21 +42,21 @@ sub cleanup()
   unlink $daemonpidfile;
   given($numberofrelays)
   {
-    when(1) {gpio_unexport($relay1_0); gpio_unexport($relay1_1); }
-    when(2) {gpio_unexport($relay1_0); gpio_unexport($relay1_1);
-             gpio_unexport($relay1_0); gpio_unexport($relay1_0); }
-    when(3) {gpio_unexport($relay1_0); gpio_unexport($relay1_1);
-             gpio_unexport($relay2_0); gpio_unexport($relay2_1);
-             gpio_unexport($relay3_0); gpio_unexport($relay3_1);}
-    when(4) {gpio_unexport($relay1_0); gpio_unexport($relay1_1);
-             gpio_unexport($relay2_0); gpio_unexport($relay2_1);
-             gpio_unexport($relay3_0); gpio_unexport($relay3_1);
-             gpio_unexport($relay4_0); gpio_unexport($relay4_1);}
-    when(5) {gpio_unexport($relay1_0); gpio_unexport($relay1_1);
-             gpio_unexport($relay2_0); gpio_unexport($relay2_1);
-             gpio_unexport($relay3_0); gpio_unexport($relay3_1);
-             gpio_unexport($relay4_0); gpio_unexport($relay4_1);
-             gpio_unexport($relay5_0); gpio_unexport($relay5_1);}
+    when(1) {gpio_unexport($relay_off[1]); gpio_unexport($relay_on[1]); }
+    when(2) {gpio_unexport($relay_off[1]); gpio_unexport($relay_on[1]);
+             gpio_unexport($relay_off[1]); gpio_unexport($relay_on[1]); }
+    when(3) {gpio_unexport($relay_off[1]); gpio_unexport($relay_on[1]);
+             gpio_unexport($relay_off[2]); gpio_unexport($relay_on[2]);
+             gpio_unexport($relay_off[3]); gpio_unexport($relay_on[3]);}
+    when(4) {gpio_unexport($relay_off[1]); gpio_unexport($relay_on[1]);
+             gpio_unexport($relay_off[2]); gpio_unexport($relay_on[2]);
+             gpio_unexport($relay_off[3]); gpio_unexport($relay_on[3]);
+             gpio_unexport($relay_off[4]); gpio_unexport($relay_on[4]);}
+    when(5) {gpio_unexport($relay_off[1]); gpio_unexport($relay_on[1]);
+             gpio_unexport($relay_off[2]); gpio_unexport($relay_on[2]);
+             gpio_unexport($relay_off[3]); gpio_unexport($relay_on[3]);
+             gpio_unexport($relay_off[4]); gpio_unexport($relay_on[4]);
+             gpio_unexport($relay_off[5]); gpio_unexport($relay_on[5]);}
     default {}
   }
   exit();
@@ -73,22 +73,22 @@ sub ipc()
   {
     given($relay)
     {
-      when(1) {gpio_pulse($relay1_1)}
-      when(2) {gpio_pulse($relay2_1)}
-      when(3) {gpio_pulse($relay3_1)}
-      when(4) {gpio_pulse($relay4_1)}
-      when(5) {gpio_pulse($relay5_1)}
+      when(1) {gpio_pulse($relay_on[1])}
+      when(2) {gpio_pulse($relay_on[2])}
+      when(3) {gpio_pulse($relay_on[3])}
+      when(4) {gpio_pulse($relay_on[4])}
+      when(5) {gpio_pulse($relay_on[5])}
     }
   }
   if(not $state)
   {
     given($relay)
     {
-      when(1) {gpio_pulse($relay1_0)}
-      when(2) {gpio_pulse($relay2_0)}
-      when(3) {gpio_pulse($relay3_0)}
-      when(4) {gpio_pulse($relay4_0)}
-      when(5) {gpio_pulse($relay5_0)}
+      when(1) {gpio_pulse($relay_off[1])}
+      when(2) {gpio_pulse($relay_off[2])}
+      when(3) {gpio_pulse($relay_off[3])}
+      when(4) {gpio_pulse($relay_off[4])}
+      when(5) {gpio_pulse($relay_off[5])}
     }
   }
   kill("USR1", $pid);
