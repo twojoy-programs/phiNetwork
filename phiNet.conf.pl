@@ -40,6 +40,8 @@ my @relay_on  =
   1 => 0,
   2 => 0,
   3 => 0,
+  4 => 0,
+  5 => 0
 };
 # Addresses for the "Off" state of the relays.
 my @relay_off =
@@ -47,6 +49,8 @@ my @relay_off =
   1 => 0,
   2 => 0,
   3 => 0,
+  4 => 0,
+  5 => 0
 };
 
 # This is the password, hashed 2 times with SHA256 (with hex output)
