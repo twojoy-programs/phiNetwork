@@ -10,6 +10,7 @@ use v5.14;
 do $config;
 $SIG{INT} = \&cleanup;
 $SIG{HUP} = \&loadconf;
+
 if(-e $daemonpidfile)
 {
   say("Lockfile detected!");
@@ -17,6 +18,12 @@ if(-e $daemonpidfile)
   say("or that the last daemon exited (abruptly) and left");
   say("the PID file behind. If you believe in the latter,");
   say("delete $daemonpidfile. If not, stop the other daemon.");
+}
+if($numberofrelays > 5)
+{
+my $message = "Too Many Relays! Right now, this program only supports 5 relays.";
+say $message;
+exit(1);
 }
 given($numberofrelays)
 {
