@@ -5,15 +5,15 @@ my $error_wrongform = "Content-Type:text/html\n\n"
                       '<strong class="center">Wrong form submitted</strong>'."\n"
                       "</body></html>\n";
 
-my $error_wrongpw   = "Content-Type:text/html; charset=UTF-8\n"
+my $error_wrongpw   = "Content-Type:text/html\n\n"
                       "<html><head><title>Query Error</title>\n"
                       '<link rel="stylesheet" type="text/css" href="common.css">'."\n"
                       '</head><body><h1 class="heading">Error:</h1><br>'."\n"
                       '<strong class="center">Password Incorrect</strong>'."\n"
                       "</body></html>\n";
 
-my $success         = "Content-Type:text/html; charset=UTF-8\n"
-                      "<html><head><title>Query Error</title>\n"
+my $success         = "Content-Type:text/html\n\n"
+                      "<html><head><title>Success!</title>\n"
                       '<link rel="stylesheet" type="text/css" href="common.css">'."\n"
                       '</head><body><h1 class="heading">Success!!!</h1><br>'."\n"
                       '<strong class="center"></strong>'."\n"
@@ -23,5 +23,5 @@ my $error_daemondead ="Content-Type:text/html; charset=UTF-8\n"
                       "<html><head><title>Query Error</title>\n"
                       '<link rel="stylesheet" type="text/css" href="common.css">'."\n"
                       '</head><body><h1 class="heading">Error:</h1><br>'."\n"
-                      '<strong class="center">The daemon doesnt seem to be up</strong>'."\n"
+                      '<strong class="center">The daemon doesn\'t seem to be up</strong>'."\n"
                       "</body></html>\n";
