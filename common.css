@@ -10,7 +10,7 @@ body {
   color: beige;
   text-align: center;
 }
-strong {
+.strong {
   color: red;
   text-align: center;
 }
