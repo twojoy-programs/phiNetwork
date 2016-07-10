@@ -1,4 +1,4 @@
-my $error_wrongform = "Content-Type:text/html; charset=UTF-8\n"
+my $error_wrongform = "Content-Type:text/html\n\n"
                       "<html><head><title>Query Error</title>\n"
                       '<link rel="stylesheet" type="text/css" href="common.css">'."\n"
                       '</head><body><h1 class="heading">Error:</h1><br>'."\n"
