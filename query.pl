@@ -3,24 +3,36 @@
 #
 
 use strict;
+use warnings;
 use Digest::SHA qw(sha256_hex);
-use CGI
+use CGI;
 my $config = "./phiNet.conf.pl";
 #my $config = "/var/www/phiNet.conf.pl"; #This is a better line if you use this in prod.
-do $config;
-do $libraries;
-do $data;
+require "phiNet.conf.pl"; #or die("oh shoot\n");
+
+our $daemonpidfile;
+our $libraries;
+our $data;
+our $password;
+our $error_wrongpw;
+our $error_wrongform;
+our $error_daemondead;
+our $success;
+
+
+require $data;
 my $query = CGI->new;
-my @input = $query->keywords;
-if ($input{"test"} != "larrywall")
-{
-  print($error_wrongform);
-  exit(0);
-}
+my %input = $query->keywords;
 if (not -e $daemonpidfile)
 {
   print($error_daemondead);
   exit(0)
+}
+require "./libPhiNet.pl"; #$libraries;
+if ($input{"test"} != "larrywall")
+{
+  print($error_wrongform);
+  exit(0);
 }
 my $pwhash = sha256_hex($input{"pw"});
 if ($pwhash != $password)
