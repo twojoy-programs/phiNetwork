@@ -1,6 +1,6 @@
 # Test gpio library.
 #
-#use strict;
+use strict;
 use warnings;
 sub gpio_pulse()
 {
