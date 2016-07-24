@@ -8,7 +8,11 @@ use warnings;
 use strict;
 use v5.14;
 do $config;
+
+# Signal handlers
 $SIG{INT} = \&cleanup;
+$SIG{TERM} = \&cleanup;
+$SIG{QUIT} = \&cleanup;
 $SIG{HUP} = \&loadconf;
 
 if(-e $daemonpidfile)
