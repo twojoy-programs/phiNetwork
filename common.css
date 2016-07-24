@@ -12,5 +12,24 @@ body {
 }
 .strong {
   color: red;
+  font-size: 150%;
+  font-weight: bold;
+}
+.unreadable {
+    color: black;
+    background-color: black;
+}
+.text {
+    text-align: justify;
+}
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
   text-align: center;
+}
+a {
+    color: cyan
 }
