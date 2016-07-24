@@ -49,6 +49,10 @@ else     # Development config
   5 => 0
 };
 
+# Whether to validate the password or not. Set this to false if you already have
+# a mechanism to make sure bad people don't mess up the relays.
+$use_pw          = 1;
+
 # This is the password, hashed 2 times with SHA256 (with hex output)
 $password        = `cat password.conf`; # This arrangement makes it easy to
                                            # test (and keep the PW secret.)

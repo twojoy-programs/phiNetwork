@@ -25,8 +25,11 @@ if ($input{"test"} != "larrywall")
   print($error_wrongform);
   exit(0);
 }
-my $pwhash = sha256_hex($input{"pw"});
-if ($pwhash != $password)
+if($use_pw)
+{
+  my $pwhash = sha256_hex($input{"pw"});
+  if ($pwhash != $password)
+}
 {
   print($error_wrongpw);
   exit(0)
