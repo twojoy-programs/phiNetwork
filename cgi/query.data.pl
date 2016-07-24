@@ -1,22 +1,22 @@
-my $error_wrongform = <<"END";
+$error_wrongform = <<"END";
 "Content-Type:text/html\n\n
 <html><head><title>Query Error</title>\n
 <link rel="stylesheet" type="text/css" href="common.css">\n
 </head><body><h1 class="heading">Error:</h1><br>\n
-<strong class="center">Wrong form submitted</strong>\n
+<div class="strong">Wrong form submitted</div>\n
 </body></html>\n
 END
 
-my $error_wrongpw = <<"END";
+$error_wrongpw = <<"END";
 "Content-Type:text/html\n\n
 <html><head><title>Query Error</title>\n
 <link rel="stylesheet" type="text/css" href="common.css">\n
 </head><body><h1 class="heading">Error:</h1><br>\n
-<strong class="center">Incorrect Password!</strong>\n
+<div class="strong">Incorrect Password!</div>\n
 </body></html>\n
 END
 
-my $success = <<"END";
+$success = <<"END";
 "Content-Type:text/html\n\n
 <html><head><title>Query Success!</title>\n
 <link rel="stylesheet" type="text/css" href="common.css">\n
@@ -24,13 +24,13 @@ my $success = <<"END";
 </body></html>\n
 END
 
-my $error_daemondead = <<"END";
+$error_daemondead = <<"END";
 "Content-Type:text/html\n\n
 <html><head><title>Query Error</title>\n
 <link rel="stylesheet" type="text/css" href="common.css">\n
 </head><body><h1 class="heading">Error:</h1><br>\n
-<strong class="center">phiNetd is either not running, or the lockfile is
+<div class="strong">phiNetd is either not running, or the lockfile is
 somewhere that this program can't find. Please show this error to whoever is
-responsible for fixing this problem.</strong>\n
+responsible for fixing this problem.</div>\n
 </body></html>\n
 END
