@@ -8,16 +8,7 @@ use Digest::SHA qw(sha256_hex);
 use CGI;
 my $config = "./phiNet.conf.pl";
 #my $config = "/var/www/phiNet.conf.pl"; #This is a better line if you use this in prod.
-require "phiNet.conf.pl"; #or die("oh shoot\n");
-
-our $daemonpidfile;
-our $libraries;
-our $data;
-our $password;
-our $error_wrongpw;
-our $error_wrongform;
-our $error_daemondead;
-our $success;
+require $config;
 
 
 require $data;
