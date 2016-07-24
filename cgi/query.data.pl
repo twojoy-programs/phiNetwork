@@ -1,5 +1,10 @@
+# Data file for query.cgi messages
+#
 
+# This might be able to be automated by a function that fills in values from a
+# template, but i'm too lazy to do that.
 
+# Error message if the form submitted is incorrectly validated
 $error_wrongform = <<"END";
 "Content-Type:text/html\n\n
 <html><head><title>Query Error</title>\n
@@ -9,6 +14,7 @@ $error_wrongform = <<"END";
 </body></html>\n
 END
 
+# Error message if the password is incorrect
 $error_wrongpw = <<"END";
 "Content-Type:text/html\n\n
 <html><head><title>Query Error</title>\n
@@ -18,6 +24,7 @@ $error_wrongpw = <<"END";
 </body></html>\n
 END
 
+# Success message
 $success = <<"END";
 "Content-Type:text/html\n\n
 <html><head><title>Query Success!</title>\n
@@ -26,6 +33,7 @@ $success = <<"END";
 </body></html>\n
 END
 
+# Error message if the daemon is dead.
 $error_daemondead = <<"END";
 "Content-Type:text/html\n\n
 <html><head><title>Query Error</title>\n
