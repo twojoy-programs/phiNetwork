@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <link rel="stylesheet" type="text/css" href="libs/common.css">
+  <title>phiNetwork relay control panel</title>
+  <script src="https://github.com/Caligatio/jsSHA/raw/master/src/sha.js"></script>
+  <meta charset="utf-8">
+
+</head>
+<body>
+  <h1 class="heading">phiNetwork relay control panel</h1>
+  <h1 class="heading">Select relay, enter password, and press button
+    to turn on or off.</h1>
+  <div class="strong">All input fields are required</div>
+  <form class="center" id="form" action="cgi/query.pl" method="post">
+    <input type="radio" name="sw" value="1" checked> Relay 1<br>
+    <input type="radio" name="sw" value="2">         Relay 2<br>
+    <input type="radio" name="sw" value="3">         Relay 3<br>
+    Password: <input type="password"  name="pw_nohash"><br>
+    <input type="hidden" name="test" value="larrywall">
+    <input type="hidden" name="state" value="0">
+    <input type="hidden" name="pw" value="">
+    <input type="button" onclick="on();" value="Turn On!">
+    <input type="button" onclick="off();" value="Turn Off!">
+  </form>
+  <script>
+  var form = document.getElementById("form");
+  var state = form.elements.namedItem("state");
+  var pw = form.elements.namedItem("pw");
+  var pw_nohash = form.elements.namedItem("pw_nohash");
+  var shaObj = new jsSHA("SHA-256", "TEXT");
+  function on()
+  {
+    shaObj.update(pw_nohash.value);
+    pw.value = shaObj.getHash("HEX");
+    pw_nohash.value="";
+    state.value = "1";
+    form.submit();
+  }
+  function off()
+  {
+    shaObj.update(pw_nohash.value);
+    pw.value = shaObj.getHash("HEX");
+    pw_nohash.value="";
+    state.value = "0";
+    form.submit();
+  }
+  </script>
+  <noscript>Javascript is required for this page.</noscript>
+
+</body>
+</html>
