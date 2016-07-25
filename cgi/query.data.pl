@@ -6,7 +6,7 @@
 
 # Error message if the form submitted is incorrectly validated
 $error_wrongform = <<"END";
-"Content-Type:text/html\n\n
+Content-Type: text/html\n\n
 <html><head><title>Query Error</title>\n
 <link rel="stylesheet" type="text/css" href="../libs/common.css">\n
 </head><body><h1 class="heading">Error:</h1><br>\n
@@ -16,7 +16,7 @@ END
 
 # Error message if the password is incorrect
 $error_wrongpw = <<"END";
-"Content-Type:text/html\n\n
+Content-Type: text/html\n\n
 <html><head><title>Query Error</title>\n
 <link rel="stylesheet" type="text/css" href="../libs/common.css">\n
 </head><body><h1 class="heading">Error:</h1><br>\n
@@ -26,7 +26,7 @@ END
 
 # Success message
 $success = <<"END";
-"Content-Type:text/html\n\n
+Content-Type: text/html\n\n
 <html><head><title>Query Success!</title>\n
 <link rel="stylesheet" type="text/css" href="../libs/common.css">\n
 </head><body><h1 class="heading">Query Successful!</h1><br>\n
@@ -35,7 +35,7 @@ END
 
 # Error message if the daemon is dead.
 $error_daemondead = <<"END";
-"Content-Type:text/html\n\n
+Content-Type:text/html\n\n
 <html><head><title>Query Error</title>\n
 <link rel="stylesheet" type="text/css" href="../libs/common.css">\n
 </head><body><h1 class="heading">Error:</h1><br>\n
