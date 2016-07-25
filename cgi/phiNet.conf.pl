@@ -32,22 +32,22 @@ else     # Development config
 # Relay Addresses.
 # Addresses for the "On" state of the relays.
 @relay_on  =
-{
+(
   1 => 0,
   2 => 0,
   3 => 0,
   4 => 0,
   5 => 0
-};
+);
 # Addresses for the "Off" state of the relays.
 @relay_off =
-{
+(
   1 => 0,
   2 => 0,
   3 => 0,
   4 => 0,
   5 => 0
-};
+);
 
 # Whether to validate the password or not. Set this to false if you already have
 # a mechanism to make sure bad people don't mess up the relays.
