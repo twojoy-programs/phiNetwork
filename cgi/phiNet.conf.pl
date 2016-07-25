@@ -11,11 +11,11 @@ if($prod) # Production config
   # Where the file for the daemon's PID will be stored.
   $ipcfile       = "/var/www/phiNet/ipc.conf.pl";
   # Where the IPC file will be
-  $libraries     = "/var/www/phiNet/libPhiNet.pl"
+  $libraries     = "/var/www/phiNet/libPhiNet.pl";
   # Where the library is.
-  $data          = "/var/www/phiNet/query.data.pl"
+  $data          = "/var/www/phiNet/query.data.pl";
   # Where the query response data is.
-  $gpioLib       = "/var/www/phiNet/gpiolib.pl"
+  $gpioLib       = "/var/www/phiNet/gpiolib.pl";
 }
 else     # Development config
 {
@@ -23,11 +23,11 @@ else     # Development config
   # Where the file for the daemon's PID will be stored.
   $ipcfile       = "./ipc.conf.pl";
   # Where the IPC file will be
-  $libraries     = "./libPhiNet.pl"
+  $libraries     = "./libPhiNet.pl";
   # Where the library is.
-  $data          = "./query.data.pl"
+  $data          = "./query.data.pl";
   # Where the query response data is.
-  $gpioLib       = "./gpioLib.pl"
+  $gpioLib       = "./gpioLib.pl";
 }
 # Relay Addresses.
 # Addresses for the "On" state of the relays.
