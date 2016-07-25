@@ -9,3 +9,4 @@ Libraries Needed:
 -----------------
 * `Digest::SHA`
 * `CGI`
+* `File::ReadBackwards`
