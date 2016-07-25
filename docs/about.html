@@ -2,21 +2,26 @@
 <html>
 <head>
 
-  <link rel="stylesheet" type="text/css" href="libs/common.css">
+  <link rel="stylesheet" type="text/css" href="../libs/common.css">
   <title>About phiNetwork</title>
   <meta charset="utf-8">
+  <script>
+    $(function(){
+      $('#version').load("../cgi/version.pl");
+    });
+  </script>
 
 </head>
 <body>
-  <h1 class="heading">phiNetwork</h1>
+  <h1 class="heading">phiNetwork git revision #<div id="version"></div></h1>
   <div class="text">
     This code was mostly written by <a href="">Tucker Twomey ("tuckertwo" on
-    github), and debugged by Matt Twomey.</a>. Hashing in <pre>query.pl</pre>
+    github), and debugged by Matt Twomey.</a>. Hashing in "query.pl"
     is handled by the CPAN module
     <a href="https://metacpan.org/pod/Digest::SHA">"Digest::SHA"</a>, and input handling is
     done with the CPAN mod.
     <a href="https://metacpan.org/pod/distribution/CGI/lib/CGI.pod">"CGI"</a>.
-    Hashing in <pre>panel.html</pre> is done with the
+    Hashing in "panel.html" is done with the
     <a href="https://github.com/Caligatio/jsSHA">"jsSHA"</a> library.
     Code for including a page from another html page is from
     <a href="http://stackoverflow.com/a/30431619">here</a>.
