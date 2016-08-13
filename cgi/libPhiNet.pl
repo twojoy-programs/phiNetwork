@@ -15,7 +15,7 @@ if (-e $daemonpidfile)
 do $daemonpidfile;
 sub on()
 {
-    my $arg = shift;
+    my $relay = shift;
     {
       while(-e $ipcfile)
       {
@@ -29,7 +29,7 @@ sub on()
     my $pfile_fh;
     open($pfile_fh ">", $ipcfile) or croak("Can't open IPC file: $!\n");
     print($pfile_fh '$pid = ' . "$$\n");
-    print($pfile_fh '$relay = ' . "$arg\n");
+    print($pfile_fh '$relay = ' . "$relay\n");
     print($pfile_fh '$state = ' . "1\n");
     close($pfile_fh);
     kill('USR1', $daemonpid);
@@ -40,7 +40,7 @@ sub on()
 }
 sub off()
 {
-    my $arg = shift;
+    my $relay = shift;
     if (-e $ipcfile)
     {
       while(-e $ipcfile)
@@ -55,7 +55,7 @@ sub off()
     my $pfile_fh;
     open($pfile_fh, ">", $ipcfile) or croak("Can't open IPC file: $!\n");
     print($pfile_fh '$pid = ' . "$$\n");
-    print($pfile_fh '$relay = ' . "$arg\n");
+    print($pfile_fh '$relay = ' . "$relay\n");
     print($pfile_fh '$state = ' . "0\n");
     close($pfile_fh);
     kill('USR1', $daemonpid);
@@ -63,4 +63,5 @@ sub off()
     sleep(10);
     return 0;
 }
+
 1;
