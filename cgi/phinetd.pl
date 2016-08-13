@@ -25,10 +25,11 @@ if(-e $daemonpidfile)
 }
 if($numberofrelays > 5)
 {
-my $message = "Too Many Relays! Right now, this program only supports 5 relays.";
-say $message;
-exit(1);
+  my $message = "Too Many Relays! Right now, this program only supports 5 relays.";
+  say $message;
+  exit(1);
 }
+
 given($numberofrelays)
 {
   when(1) {gpio_export($relay_off[1]); gpio_export($relay_on[1]); }
