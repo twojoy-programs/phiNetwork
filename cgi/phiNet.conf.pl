@@ -19,9 +19,9 @@ if($prod) # Production config
 }
 else     # Development config
 {
-  $daemonpidfile = "./pid.conf.pl";
+  $daemonpidfile = "../ipc/pid.conf.pl";
   # Where the file for the daemon's PID will be stored.
-  $ipcfile       = "./ipc.conf.pl";
+  $ipcfile       = "./ipc/ipc.conf.pl";
   # Where the IPC file will be
   $libraries     = "./libPhiNet.pl";
   # Where the library is.
@@ -51,6 +51,7 @@ else     # Development config
 
 # Whether to validate the password or not. Set this to false if you already have
 # a mechanism to make sure bad people don't mess up the relays.
+
 $use_pw          = 1;
 
 # This is the password, hashed 2 times with SHA256 (with hex output)
