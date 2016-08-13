@@ -5,7 +5,7 @@ my $config = "./phiNet.conf.pl";
 # Library for talking w/ phinet daemon
 #
 use strict;
-use Carp;
+use Carp qw(cluck);
 do $config;
 
 if (-e $daemonpidfile)
@@ -15,53 +15,44 @@ if (-e $daemonpidfile)
 do $daemonpidfile;
 sub on()
 {
-    my $relay = shift;
-    {
-      while(-e $ipcfile)
-      {
-        sleep(0.5);
-      }
-    }
-    if (not $arg)
-    {
-      confess("Arguments Needed!!!\n");
-    }
-    my $pfile_fh;
-    open($pfile_fh ">", $ipcfile) or croak("Can't open IPC file: $!\n");
-    print($pfile_fh '$pid = ' . "$$\n");
-    print($pfile_fh '$relay = ' . "$relay\n");
-    print($pfile_fh '$state = ' . "1\n");
-    close($pfile_fh);
-    kill('USR1', $daemonpid);
-    $SIG{USR1} = sub {return 1};
-    sleep(10);
-    return 0;
-
+  cluck("on() is deprecated, use switch() instead!\n");
+  my $relay = shift;
+  switch($relay, 1);
 }
 sub off()
 {
-    my $relay = shift;
-    if (-e $ipcfile)
-    {
-      while(-e $ipcfile)
-      {
-        sleep(0.5);
-      }
-    }
-    if (not $arg)
-    {
-      confess("Arguments Needed!!!\n");
-    }
-    my $pfile_fh;
-    open($pfile_fh, ">", $ipcfile) or croak("Can't open IPC file: $!\n");
-    print($pfile_fh '$pid = ' . "$$\n");
-    print($pfile_fh '$relay = ' . "$relay\n");
-    print($pfile_fh '$state = ' . "0\n");
-    close($pfile_fh);
-    kill('USR1', $daemonpid);
-    $SIG{USR1} = sub {return 1};
-    sleep(10);
-    return 0;
+  cluck("off() is deprecated, use switch() instead!\n");
+  my $relay = shift;
+  switch($relay, 0);
 }
-
+sub switch()
+{
+  if(scalar(@_) != 2)
+  {
+    confess("Wrong Args!!!!\n");
+  }
+  my $relay = shift;
+  my $state = shift;
+  if($state != 0 or $state != 1)
+  {
+    confess("state must be 0 or 1");
+  }
+  if (-e $ipcfile)
+  {
+    while(-e $ipcfile)
+    {
+      sleep(0.5);
+    }
+  }
+  my $pfile_fh;
+  open($pfile_fh, ">", $ipcfile) or croak("Can't open IPC file: $!\n");
+  print($pfile_fh '$pid = ' . "$$\n");
+  print($pfile_fh '$relay = ' . "$relay\n");
+  print($pfile_fh '$state = ' . "$\n");
+  close($pfile_fh);
+  kill('USR1', $daemonpid);
+  $SIG{USR1} = sub {return 1};
+  sleep(10);
+  return 0;
+}
 1;
