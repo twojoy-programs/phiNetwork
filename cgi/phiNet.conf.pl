@@ -51,7 +51,7 @@ else     # Development config
 
 # Whether to validate the password or not. Set this to false if you already have
 # a mechanism to make sure bad people don't mess up the relays.
-
+# FYI, this is totally insecure.
 $use_pw          = 1;
 
 # This is the password, hashed 2 times with SHA256 (with hex output)
