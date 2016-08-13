@@ -16,7 +16,7 @@ sub tail {
 
     return $lines;
 }
-#Everything above this is from http://stackoverflow.com/a/29267540.
+# tail() is from http://stackoverflow.com/a/29267540.
 my $git_dir = "../.git";
 my $lastcommit = tail("$git_dir/logs/HEAD", 1);
 my @lastcommit_split = split(/ /, $lastcommit);
