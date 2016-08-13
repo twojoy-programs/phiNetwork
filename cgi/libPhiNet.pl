@@ -26,11 +26,12 @@ sub on()
     {
       confess("Arguments Needed!!!\n");
     }
-    open(PFILE ">", $ipcfile) or croak("Can't open IPC file: $!\n");
-    print(PFILE '$pid = ' . "$$\n");
-    print(PFILE '$relay = ' . "$arg\n");
-    print(PFILE '$state = ' . "1\n");
-    close(PFILE);
+    my $pfile_fh;
+    open($pfile_fh ">", $ipcfile) or croak("Can't open IPC file: $!\n");
+    print($pfile_fh '$pid = ' . "$$\n");
+    print($pfile_fh '$relay = ' . "$arg\n");
+    print($pfile_fh '$state = ' . "1\n");
+    close($pfile_fh);
     kill('USR1', $daemonpid);
     $SIG{USR1} = sub {return 1};
     sleep(10);
@@ -51,11 +52,12 @@ sub off()
     {
       confess("Arguments Needed!!!\n");
     }
-    open(PFILE, ">", $ipcfile) or croak("Can't open IPC file: $!\n");
-    print(PFILE '$pid = ' . "$$\n");
-    print(PFILE '$relay = ' . "$arg\n");
-    print(PFILE '$state = ' . "0\n");
-    close(PFILE);
+    my $pfile_fh;
+    open($pfile_fh, ">", $ipcfile) or croak("Can't open IPC file: $!\n");
+    print($pfile_fh '$pid = ' . "$$\n");
+    print($pfile_fh '$relay = ' . "$arg\n");
+    print($pfile_fh '$state = ' . "0\n");
+    close($pfile_fh);
     kill('USR1', $daemonpid);
     $SIG{USR1} = sub {return 1};
     sleep(10);
