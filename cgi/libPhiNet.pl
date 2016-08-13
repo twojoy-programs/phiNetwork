@@ -35,7 +35,7 @@ sub switch()
   my $state = shift;
   if($state != 0 or $state != 1)
   {
-    confess("state must be 0 or 1");
+    confess("State must be 0 or 1\n");
   }
   if (-e $ipcfile)
   {
@@ -48,7 +48,7 @@ sub switch()
   open($pfile_fh, ">", $ipcfile) or croak("Can't open IPC file: $!\n");
   print($pfile_fh '$pid = ' . "$$\n");
   print($pfile_fh '$relay = ' . "$relay\n");
-  print($pfile_fh '$state = ' . "$\n");
+  print($pfile_fh '$state = ' . "$state\n");
   close($pfile_fh);
   kill('USR1', $daemonpid);
   $SIG{USR1} = sub {return 1};
