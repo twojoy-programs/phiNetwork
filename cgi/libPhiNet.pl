@@ -7,6 +7,7 @@ my $config = "./phiNet.conf.pl";
 use strict;
 use Carp;
 do $config;
+
 if (-e $daemonpidfile)
 {
   confess("Is the daemon alive???\n");
@@ -51,9 +52,9 @@ sub off()
       confess("Arguments Needed!!!\n");
     }
     open(PFILE, ">", $ipcfile) or croak("Can't open IPC file: $!\n");
-    print(PFILE, '$pid = ' . "$$\n");
-    print(PFILE, '$relay = ' . "$arg\n");
-    print(PFILE, '$state = ' . "0\n");
+    print(PFILE '$pid = ' . "$$\n");
+    print(PFILE '$relay = ' . "$arg\n");
+    print(PFILE '$state = ' . "0\n");
     close(PFILE);
     kill('USR1', $daemonpid);
     $SIG{USR1} = sub {return 1};
