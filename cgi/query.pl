@@ -4,16 +4,29 @@
 
 use strict;
 use warnings;
-use Digest::SHA qw(sha256_hex);
-use CGI;
+BEGIN
+{
+  my $error =
+  unless (eval "use Digest::SHA qw(sha256_hex);")
+  {
+    warn "Couldn't load Digest::SHA: $@. Falling back to Digest::SHA::PurePerl.\n"
+    unless (eval "use Digest::SHA::PurePerl qw(sha256_hex);" || !$password)
+    {
+      die "Couldn't load hash library\n"
+    }
+  }
+  unless (eval "use CGI;")
+  {
+    die "Couldn't load CGI library: $@\n"
+  }
+}
 my $config = "./phiNet.conf.pl";
 #my $config = "/var/www/phiNet.conf.pl"; #This is a better line if you use this in prod.
 require $config;
 
-
 require $data;
 my $query = CGI->new;
-my %input = $query->keywords;
+my %input = $query->keywords();
 if (not -e $daemonpidfile)
 {
   print($error_daemondead);
@@ -29,10 +42,10 @@ if($use_pw)
 {
   my $pwhash = sha256_hex($input{"pw"});
   if ($pwhash != $password)
-}
-{
-  print($error_wrongpw);
-  exit(0)
+  {
+    print($error_wrongpw);
+    exit(0)
+  }
 }
 if ($input{"state"})
 {
