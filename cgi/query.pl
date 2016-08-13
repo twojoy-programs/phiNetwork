@@ -6,7 +6,6 @@ use strict;
 use warnings;
 BEGIN
 {
-  my $error =
   unless (eval "use Digest::SHA qw(sha256_hex);")
   {
     warn "Couldn't load Digest::SHA: $@. Falling back to Digest::SHA::PurePerl.\n"
