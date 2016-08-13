@@ -4,6 +4,7 @@
 
 use strict;
 use warnings;
+
 BEGIN
 {
   unless (eval "use Digest::SHA qw(sha256_hex);")
@@ -19,6 +20,8 @@ BEGIN
     die "Couldn't load CGI library: $@\n"
   }
 }
+use CGI::Carp qw(fatalsToBrowser);
+
 my $config = "./phiNet.conf.pl";
 #my $config = "/var/www/phiNet.conf.pl"; #This is a better line if you use this in prod.
 require $config;
