@@ -3,6 +3,7 @@ use strict;
 use File::ReadBackwards;
 use CGI::Carp qw(fatalsToBrowser);
 #print $0;
+
 sub tail {
     my ($file, $num_lines) = @_;
 
