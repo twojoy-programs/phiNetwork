@@ -12,7 +12,7 @@ BEGIN
     warn "Couldn't load Digest::SHA: $@. Falling back to Digest::SHA::PurePerl.\n"
     unless (eval "use Digest::SHA::PurePerl qw(sha256_hex);" || !$password)
     {
-      die "Couldn't load hash library\n"
+      die "Couldn't load hash library: $@, and password auth is enabled.\n"
     }
   }
   unless (eval "use CGI;")
