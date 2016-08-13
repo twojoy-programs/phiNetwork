@@ -7,12 +7,6 @@ my $config = "./phiNet.conf.pl";
 use strict;
 use Carp qw(cluck);
 do $config;
-
-if (-e $daemonpidfile)
-{
-  confess("Is the daemon alive???\n");
-}
-do $daemonpidfile;
 sub on()
 {
   cluck("on() is deprecated, use switch() instead!\n");
@@ -37,11 +31,22 @@ sub switch()
   {
     confess("State must be 0 or 1\n");
   }
+  if (-e $daemonpidfile)
+  {
+    croak("Is the daemon alive???\n");
+  }
+  do $daemonpidfile;
+  my $count;
   if (-e $ipcfile)
   {
     while(-e $ipcfile)
     {
       sleep(0.5);
+      $count++
+      if($count == 20)
+      {
+        croak("IPC locking timed out")
+      }
     }
   }
   my $pfile_fh;
