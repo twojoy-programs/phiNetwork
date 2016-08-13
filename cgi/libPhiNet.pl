@@ -25,10 +25,10 @@ sub on()
     {
       confess("Arguments Needed!!!\n");
     }
-    open(PFILE, ">", $ipcfile) or croak("Can't open IPC file: $!\n");
-    print(PFILE, '$pid = ' . "$$\n");
-    print(PFILE, '$relay = ' . "$arg\n");
-    print(PFILE, '$state = ' . "1\n");
+    open(PFILE ">", $ipcfile) or croak("Can't open IPC file: $!\n");
+    print(PFILE '$pid = ' . "$$\n");
+    print(PFILE '$relay = ' . "$arg\n");
+    print(PFILE '$state = ' . "1\n");
     close(PFILE);
     kill('USR1', $daemonpid);
     $SIG{USR1} = sub {return 1};
