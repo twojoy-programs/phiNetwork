@@ -29,47 +29,20 @@ if($numberofrelays > 5)
   say $message;
   exit(1);
 }
-
-given($numberofrelays)
+my $rlys = $numberofrelays;
+while($rlys)
 {
-  when(1) {gpio_export($relay_off[1]); gpio_export($relay_on[1]); }
-  when(2) {gpio_export($relay_off[1]); gpio_export($relay_on[1]);
-           gpio_export($relay_off[1]); gpio_export($relay_on[1]); }
-  when(3) {gpio_export($relay_off[1]); gpio_export($relay_on[1]);
-           gpio_export($relay_off[2]); gpio_export($relay_on[2]);
-           gpio_export($relay_off[3]); gpio_export($relay_on[3]);}
-  when(4) {gpio_export($relay_off[1]); gpio_export($relay_on[1]);
-           gpio_export($relay_off[2]); gpio_export($relay_on[2]);
-           gpio_export($relay_off[3]); gpio_export($relay_on[3]);
-           gpio_export($relay_off[4]); gpio_export($relay_on[4]);}
-  when(5) {gpio_export($relay_off[1]); gpio_export($relay_on[1]);
-           gpio_export($relay_off[2]); gpio_export($relay_on[2]);
-           gpio_export($relay_off[3]); gpio_export($relay_on[3]);
-           gpio_export($relay_off[4]); gpio_export($relay_on[4]);
-           gpio_export($relay_off[5]); gpio_export($relay_on[5]);}
-  default {}
+  gpio_export($relay_off[$rlys]);
+  $rlys--;
 }
+
 sub cleanup()
 {
   unlink $daemonpidfile;
-  given($numberofrelays)
+  while($rlys)
   {
-    when(1) {gpio_unexport($relay_off[1]); gpio_unexport($relay_on[1]); }
-    when(2) {gpio_unexport($relay_off[1]); gpio_unexport($relay_on[1]);
-             gpio_unexport($relay_off[1]); gpio_unexport($relay_on[1]); }
-    when(3) {gpio_unexport($relay_off[1]); gpio_unexport($relay_on[1]);
-             gpio_unexport($relay_off[2]); gpio_unexport($relay_on[2]);
-             gpio_unexport($relay_off[3]); gpio_unexport($relay_on[3]);}
-    when(4) {gpio_unexport($relay_off[1]); gpio_unexport($relay_on[1]);
-             gpio_unexport($relay_off[2]); gpio_unexport($relay_on[2]);
-             gpio_unexport($relay_off[3]); gpio_unexport($relay_on[3]);
-             gpio_unexport($relay_off[4]); gpio_unexport($relay_on[4]);}
-    when(5) {gpio_unexport($relay_off[1]); gpio_unexport($relay_on[1]);
-             gpio_unexport($relay_off[2]); gpio_unexport($relay_on[2]);
-             gpio_unexport($relay_off[3]); gpio_unexport($relay_on[3]);
-             gpio_unexport($relay_off[4]); gpio_unexport($relay_on[4]);
-             gpio_unexport($relay_off[5]); gpio_unexport($relay_on[5]);}
-    default {}
+    gpio_unexport($relay_off[$rlys]);
+    $rlys--;
   }
   exit();
 }
