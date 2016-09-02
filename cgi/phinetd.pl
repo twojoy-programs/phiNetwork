@@ -39,6 +39,7 @@ while($rlys)
 sub cleanup()
 {
   unlink $daemonpidfile;
+  my $rlys = $numberofrelays;
   while($rlys)
   {
     gpio_unexport($relay_off[$rlys]);
