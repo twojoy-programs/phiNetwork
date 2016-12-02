@@ -1,4 +1,8 @@
-/* Common CSS file used in many of my projects and websites.*/
+/*
+  Common CSS file used in many of my projects and websites.
+  This is the huge version that loads a pretty small subset
+  of the external fonts.
+*/
 /*
 Copyright (c) 2016, Tucker Twomey
 All rights reserved.
@@ -28,38 +32,18 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
-body {
+
+@import url("common-min.css");
+/* Import minimal file */
+
+@import url(
+  'https://fonts.googleapis.com/css?family=Inconsolata&subset=latin-ext');
+@import url(
+  'https://fonts.googleapis.com/css?family=Roboto:300,400&subset=latin-ext');
+/* Import truckload of fonts */
+
+body.monfont {
   color: white;
   background-color: black;
-  font-family: "Courier New", Courier, monospace
-}
-.center {
-  text-align: center;
-}
-.heading {
-  color: beige;
-  text-align: center;
-}
-.strong {
-  color: red;
-  font-size: 150%;
-  font-weight: bold;
-}
-.unreadable {
-    color: black;
-    background-color: black;
-}
-.text {
-    text-align: justify;
-}
-.footer {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 1rem;
-  text-align: center;
-}
-a {
-    color: cyan
+  font-family: "Inconsolata", "Courier New", Courier, monospace
 }
