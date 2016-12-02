@@ -1,3 +1,7 @@
+#!/usr/bin/env perl
+# Short 2-line description
+# goes here.
+'
 Copyright (c) 2016, twojoy-programs
 All rights reserved.
 
@@ -25,3 +29,10 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+';
+use strict;
+use warnings;
+no  warnings qw(void experimental);
+use utf8;
+use open IO  => ":encoding(utf8)";
+use v5.14;
